@@ -10,6 +10,25 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+/* 
+  //Abishek Edits */
+--color-purple-normal:#724BDB;
+--color-blue-normal:#2771D7;
+--color-orange-normal:#FD7128;
+--color-green-normal:#339B50;
+--color-green-dark:#098A8E;
+--color-pink-normal:#D84063;
+--color-purple-dark:#4252C7;
+
+--color-blue-light:#EDF4FD;
+--color-text-ash:#666668;
+--color-text-blue:#103766;
+
+--color-header-background:#143966;
+--color-header-icon:#B8D7FC;
+--color-container-background:#E8F2FE;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
