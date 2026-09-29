@@ -9,7 +9,7 @@ import Image from "next/image";
 const profiles = [
   {
     name: "Abishek Thapa",
-    title: "Founded & Educator",
+    title: "Founder & Educator",
     description: "Academician & Researcher with professional teaching experience",
     image: "/abishek.jpg",
     linkedin: "https://www.linkedin.com/in/abishek-thapa-935502254/",

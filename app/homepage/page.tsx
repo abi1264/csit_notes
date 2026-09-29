@@ -26,7 +26,8 @@ const semesters = [
     bgColor: "bg-blue-normal",
     iconColor: "text-blue-normal",
     driveUrl:
-      "https://drive.google.com/drive/folders/1diydD8Ti0BaNRw9MJaCSaYh3lcbTdf5R?dmr=1&ec=wgc-drive-[module]-goto",
+      "https://drive.google.com/drive/u/2/folders/1my_Vh-CcaDqXSrr3QYjN3PlIeLb9r40r",
+    arrowBgcolor:""
   },
   {
     id: 2,
@@ -36,7 +37,8 @@ const semesters = [
     icon: "FileText",
     bgColor: "bg-green-normal",
     iconColor: "text-green-normal",
-    driveUrl: "YOUR_SEMESTER_2_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/1Vmv9zfw9Gh05Xyq8scuU_qiWudUNu0CW",
+    arrowBgcolor:""
   },
   {
     id: 3,
@@ -45,8 +47,9 @@ const semesters = [
       "Data Structures and Algorithms, Numerical Method, Computer Architecture, Computer Graphics, Statistics II",
     icon: "Code",
     bgColor: "bg-purple-normal",
-    iconColor: "text-green-normal",
-    driveUrl: "YOUR_SEMESTER_3_DRIVE_URL",
+    iconColor: "text-purple-normal",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/1EuYT2EOVIJ3Q5_IZto_x40TELwrIft5y",
+    arrowBgcolor:""
   },
   {
     id: 4,
@@ -56,7 +59,8 @@ const semesters = [
     icon: "Database",
     bgColor: "bg-orange-normal",
     iconColor: "text-orange-normal",
-    driveUrl: "YOUR_SEMESTER_4_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/17TFxC5jaZsUYTOQJ62eiuTXM16LdzD3Y",
+    arrowBgcolor:"bg-orange-100"
   },
   {
     id: 5,
@@ -66,7 +70,8 @@ const semesters = [
     icon: "Monitor",
     bgColor: "bg-green-normal",
     iconColor: "text-green-normal",
-    driveUrl: "YOUR_SEMESTER_5_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/1rju8fHMfl5mMl-bCWlX9GfIoTsW3opEY",
+    arrowBgcolor:"bg-green-100"
   },
   {
     id: 6,
@@ -76,7 +81,8 @@ const semesters = [
     icon: "Brain",
     bgColor: "bg-pink-normal",
     iconColor: "text-pink-normal",
-    driveUrl: "YOUR_SEMESTER_6_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/13NOj0ajKmKfH4MYjJi9KVQVluRCXFARk",
+    arrowBgcolor:"bg-pink-100"
   },
   {
     id: 7,
@@ -86,7 +92,8 @@ const semesters = [
     icon: "Globe",
     bgColor: "bg-purple-dark",
     iconColor: "text-purple-dark",
-    driveUrl: "YOUR_SEMESTER_7_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/1fC3VHaG4IHz7BCAzG-JuICfaYt_VNCyg",
+    arrowBgcolor:"bg-pruple-100"
   },
   {
     id: 8,
@@ -95,7 +102,8 @@ const semesters = [
     icon: "GraduationCap",
     bgColor: "bg-blue-normal",
     iconColor: "text-blue-normal",
-    driveUrl: "YOUR_SEMESTER_8_DRIVE_URL",
+    driveUrl: "https://drive.google.com/drive/u/2/folders/15h7WI9VHkYv639xXHZPfuL-rfpZ9Dazz",
+    arrowBgcolor:"bg-blue-100"
   },
 ];
 
@@ -135,7 +143,7 @@ export default function Homepage() {
                 </p>
               </div>
               <div className="rounded-3xl border border-gray-1 w-fit p-3 bg-text-blue text-white font-bold">
-                Open in Google Drive
+                Gain a mastery in Computer Scienc and IT
               </div>
             </div>
 
@@ -206,8 +214,7 @@ export default function Homepage() {
             </div>
           </div>
 
-          <div className="border border-amber-300">
-            
+          <div className="">
             <Image
               src="/study_materials.jpg"
               alt="formula board"
@@ -220,14 +227,14 @@ export default function Homepage() {
 
         {/* Down Section */}
 
-        <div className="flex flex-col  ">
+        <div className="flex flex-col mt-8 ">
           <div className="flex flex-col gap-2">
             <span className="font-bold text-3xl text-text-blue">Semesters</span>
-            <span className="text-text-ash text-lg">
+            <span className="text-text-ash text-lg ">
               Choose your semesters to view notes and study materials
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-4 p-4 bg-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-[#E0EDFD]">
             {semesters.map((semester) => (
               <SemesterCard key={semester.id} semester={semester} />
             ))}

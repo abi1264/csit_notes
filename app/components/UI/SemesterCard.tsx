@@ -21,6 +21,7 @@ type Semester = {
   bgColor: string;
   iconColor:string;
   driveUrl: string;
+  arrowBgcolor:string;
 };
 
 type SemesterCardProps = {
@@ -46,18 +47,17 @@ export default function SemesterCard({ semester }: SemesterCardProps) {
         <h2 className="'text-black">{semester.id}</h2>
       </div>
 
-      <div className='flex flex-col gap-3 min-h-30'>
+      <div className='flex flex-col gap-3 min-h-35'>
         <span className='text-3xl font-bold'>{semester.semester}</span>
-        <span className='text-text-ash'>{semester.subjects}</span>
+        <div className='text-text-ash h-30'>{semester.subjects}</div>
       </div>
       <div className="flex justify-between">
         <Icon size={28} className={`${semester.iconColor}`} />
-        <ArrowRight className={`${semester.iconColor} cursor-pointer`} 
+        
+        <ArrowRight size={40} className={`${semester.iconColor} cursor-pointer rounded-3xl p-1 `} 
         onClick={()=>window.open(semester.driveUrl,"_blank")}
           />
       </div>
-
-        
     </div>
   );
 }

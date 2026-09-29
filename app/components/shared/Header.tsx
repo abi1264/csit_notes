@@ -11,7 +11,7 @@ export default function Header() {
         </div>
 
         <div className='flex flex-col gap-5 p-5 md:flex-row'>
-          <Link href='/modules/homepage/'>
+          <Link href='/homepage/'>
           <div className="flex gap-2 items-center hover:cursor-pointer hover:scale-105 transition-smooth duration-400">
             <House size={20} className="text-white" />
             <span className='text-white '>Home</span>
