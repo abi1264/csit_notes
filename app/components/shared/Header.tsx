@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <section className="bg-header-background p-4 rounded-lg sticky top-0 w-full">
+    <section className="bg-header-background p-4 rounded-lg sticky top-0 w-full z-10">
       <div className='flex justify-between'>
         <div className="flex gap-3 items-center">
           <GraduationCap size={50} className="text-header-icon" />
@@ -18,12 +18,12 @@ export default function Header() {
           </div>
           </Link>
 
-          <Link href='/modules/aboutUs/'>
+          {/* <Link href='/modules/aboutUs/'>
           <div className="flex gap-2 items-center hover:cursor-pointer hover:scale-105 transition:smooth duration:400">
             <Info size={20} className='text-white'/>
             <span className='text-white'>About</span>
           </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
