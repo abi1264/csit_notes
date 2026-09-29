@@ -134,7 +134,7 @@ export default function Homepage() {
         <div className="flex flex-col justify-between md:flex-row ">
           <div className="flex flex-col md:flex-row ">
             <div className="flex flex-col gap-5 bg-white  p-4 ">
-              <div className="text-blue-600 font-bold  ">
+              <div className="text-black-600 font-bold  ">
                 An initiative to provide you with the best resources available
                 to us.
               </div>
