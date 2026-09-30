@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/app/components/shared/Container";
 import SemesterCard from "@/app/components/UI/SemesterCard";
 import Image from "next/image";
@@ -15,6 +16,7 @@ import {
 } from "lucide-react";
 import Header from "@/app/components/shared/Header";
 import Footer from "@/app/components/shared/Footer";
+import PlanCard from "../components/UI/Plans";
 
 const semesters = [
   {
@@ -25,8 +27,7 @@ const semesters = [
     icon: "BookOpen",
     bgColor: "bg-[#E0F3FF]",
     iconColor: "text-blue-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/1my_Vh-CcaDqXSrr3QYjN3PlIeLb9r40r",
+    folderId: "1my_Vh-CcaDqXSrr3QYjN3PlIeLb9r40r",
     arrowBgcolor: "",
   },
   {
@@ -37,8 +38,7 @@ const semesters = [
     icon: "FileText",
     bgColor: "bg-[#D9E2EF]",
     iconColor: "text-green-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/1Vmv9zfw9Gh05Xyq8scuU_qiWudUNu0CW",
+    folderId: "1Vmv9zfw9Gh05Xyq8scuU_qiWudUNu0CW",
     arrowBgcolor: "",
   },
   {
@@ -49,8 +49,7 @@ const semesters = [
     icon: "Code",
     bgColor: "bg-[#FFF3C4]",
     iconColor: "text-purple-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/1EuYT2EOVIJ3Q5_IZto_x40TELwrIft5y",
+    folderId: "1EuYT2EOVIJ3Q5_IZto_x40TELwrIft5y",
     arrowBgcolor: "",
   },
   {
@@ -61,8 +60,7 @@ const semesters = [
     icon: "Database",
     bgColor: "bg-[#EBDDD3]",
     iconColor: "text-orange-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/17TFxC5jaZsUYTOQJ62eiuTXM16LdzD3Y",
+    folderId: "17TFxC5jaZsUYTOQJ62eiuTXM16LdzD3Y",
     arrowBgcolor: "bg-orange-100",
   },
   {
@@ -73,8 +71,7 @@ const semesters = [
     icon: "Monitor",
     bgColor: "bg-[#FFD6D6]",
     iconColor: "text-green-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/1rju8fHMfl5mMl-bCWlX9GfIoTsW3opEY",
+    folderId: "1rju8fHMfl5mMl-bCWlX9GfIoTsW3opEY",
     arrowBgcolor: "bg-green-100",
   },
   {
@@ -85,8 +82,7 @@ const semesters = [
     icon: "Brain",
     bgColor: "bg-[#DDF2DC]",
     iconColor: "text-pink-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/13NOj0ajKmKfH4MYjJi9KVQVluRCXFARk",
+    folderId: "13NOj0ajKmKfH4MYjJi9KVQVluRCXFARk",
     arrowBgcolor: "bg-pink-100",
   },
   {
@@ -97,8 +93,7 @@ const semesters = [
     icon: "Globe",
     bgColor: "bg-[#E0E4FA]",
     iconColor: "text-purple-dark",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/1fC3VHaG4IHz7BCAzG-JuICfaYt_VNCyg",
+    folderId: "1fC3VHaG4IHz7BCAzG-JuICfaYt_VNCyg",
     arrowBgcolor: "bg-pruple-100",
   },
   {
@@ -108,9 +103,29 @@ const semesters = [
     icon: "GraduationCap",
     bgColor: "bg-[#D8F0EC]",
     iconColor: "text-blue-normal",
-    driveUrl:
-      "https://drive.google.com/drive/u/2/folders/15h7WI9VHkYv639xXHZPfuL-rfpZ9Dazz",
+    folderId: "15h7WI9VHkYv639xXHZPfuL-rfpZ9Dazz",
     arrowBgcolor: "bg-blue-100",
+  },
+];
+
+const plans = [
+  {
+    id: 1,
+    title: "Academic Excellence",
+    features: ["TU Syllabus Mastery", "Exam & Carrer Preparation","Live Q&A and doubt solving",
+      "Exam-focused preparation","Project Guidance"
+    ],
+  },
+  {
+    id: 2,
+    title: "Technology and Skills",
+    features: ["Full-stack web development", "UI/UX design and prototyping",
+      "Wireframing and modern design workflows",
+      "Backend and API development",
+      "Data science fundamentals",
+      "Machine learning algorithms",
+      "Database design and management",
+    ],
   },
 ];
 
@@ -126,14 +141,18 @@ export default function Homepage() {
     GraduationCap,
   };
 
+  function handleSyllabus(syllabusFolderId: string) {
+    window.open(`/pdf/${syllabusFolderId}`, "_blank");
+  }
+
   return (
     <Container>
       <Header />
       {/* top section  */}
-      <section className="mt-5 border border-gray-200 mb-2 ">
+      <section className="mt-5 mb-5 p-5">
         <div className="flex flex-col justify-between md:flex-row ">
           <div className="flex flex-col md:flex-row ">
-            <div className="flex flex-col gap-5 bg-white  p-4 ">
+            <div className="flex flex-col gap-5 bg-white  ">
               <div className="text-black-600 font-bold  ">
                 An initiative to provide you with the best resources available
                 to us.
@@ -142,24 +161,18 @@ export default function Homepage() {
                 <span className="text-5xl font-bold text-blue">BSc.CSIT</span>
               </div>
               <div className="w-full">
-                <p className="max-w-text-sm md:text-lg text-text-ash  ">
+                <p className="max-w-150 text-sm md:text-lg text-text-ash">
                   Access your semester-wise notes, resources and study
-                  materials. Click on any semester to open the respective folder
-                  in Google Drive.
+                  materials. Click on any semester to open the respective
+                  folder.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-1">
                 <div className="rounded-3xl border border-gray-1  text-center p-3 bg-text-blue text-white font-bold">
                   Comprehensive Notes
                 </div>
                 <div className="rounded-3xl border border-gray-1 text-center p-3 bg-text-blue text-white font-bold">
                   Lab Reports & Practicals
-                </div>
-                <div className="rounded-3xl border border-gray-1 text-center p-3 bg-text-blue text-white font-bold">
-                  Past Questions & Solutions
-                </div>
-                <div className="rounded-3xl border border-gray-1 p-3 text-center bg-text-blue text-white font-bold">
-                  Complete Study Materials
                 </div>
               </div>
             </div>
@@ -171,19 +184,29 @@ export default function Homepage() {
               alt="formula board"
               width={500}
               height={500}
-              className="h-100 w-200"
+              className="h-80 w-140  object-cover "
             />
           </div>
         </div>
 
         {/* Down Section */}
 
-        <div className="flex flex-col  ">
+        <div className="flex flex-col ">
           <div className="flex flex-col gap-2">
             <span className="font-bold text-3xl text-text-blue">Semesters</span>
             <span className="text-text-ash text-lg ">
               Choose your semesters to view notes and study materials
             </span>
+            <button
+              className="border border-gray-200 rounded-lg w-fit p-2 bg-[#D8F0EC] cursor-pointer text-black font-bold hover:scale-105 transition-smooth duration-300"
+              onClick={() => {
+                handleSyllabus(
+                  "1P0IWRx0-C-Pd40HPcz8OmBwWuA_Ze_Zx?usp=drive_link",
+                );
+              }}
+            >
+              New Syllabus
+            </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 ">
             {semesters.map((semester) => (
@@ -192,73 +215,22 @@ export default function Homepage() {
           </div>
         </div>
 
+
         {/* Premium Plan */}
-        <div className=" flex flex-col gap-5 p-6 bg-blue-140   ">
-          <h1 className="text-3xl text-[#103766] font-bold ">
-            Join Our premium Plan
-          </h1>
-          <ul className="list-disc pl-6 text-[#]  space-y-2 italic border border-gray-300 rounded-xl p-3  ">
-            <li>
-              <span className="font-bold text-blue-600">
-                TU Syllabus Mastery:{" "}
-              </span>
-              <span className="font-bold text-text-ash">
-                Semester-wise live tutoring, notes, lab sheets, and solved past
-                questions.
-              </span>
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">UI/UX Design:</span>
-              <span className="font-bold text-text-ash">
-                Interactive prototyping, wireframing, and modern design
-                workflows.
-              </span>
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">
-                Full Stack & Backend:{" "}
-              </span>
-              <span className="font-bold text-text-ash">
-                End-to-end web development, API engineering, and database
-                design.
-              </span>
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">
-                AI & Machine Learning:
-              </span>
-              <span className="font-bold text-text-ash">
-                Practical training in data science, ML algorithms, and model
-                deployment.
-              </span>
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">
-                Exam & Career Prep:
-              </span>
-              <span className="font-bold text-text-ash">
-                Live Q&A, exam solution breakdowns, and hands-on project
-                guidance.
-              </span>
-            </li>
-          </ul>
-          <div className="flex flex-col gap-3 font-bold p-3">
-            <span>
-              Have a question or feedback? We'd love to hear from you. Reach out
-              to us anytime.
-            </span>
-            <button className=" rounded-xl w-fit p-2 bg-blue-200 hover:scale-110 transition-smooth duration-400 curor-pointer ">
-              <a
-                href="https://wa.me/9761807892"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                <FaWhatsapp size={22} fill="green" />
-                WhatsApp us
-              </a>
-            </button>
-          </div>
+        <div className='mt-7'>
+        <span className='text-3xl text-[#193358] font-bold '>Our Courses</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        
+          {plans.map((plan) => (
+            <PlanCard
+              key={plan.id}
+              id={plan.id}
+              title={plan.title}
+              features={plan.features}
+            />
+          ))}
+        </div>
+
         </div>
       </section>
       <Footer />
